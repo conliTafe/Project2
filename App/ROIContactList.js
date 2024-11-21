@@ -37,7 +37,7 @@ export default function ROIContactList(props) {
 
     useFocusEffect(
         React.useCallback(function() {
-            fetch('http://localhost:3000/notes')
+            fetch('http://localhost:3000/contacts')
                 .then(function(response) {
                     return response.json();
                 })
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        paddingBottom: '1em'
     }
 });

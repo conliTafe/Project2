@@ -168,88 +168,88 @@ const ERR_MSG = (msg) => { return { reason: msg }; };
 app.use(express.json());
 app.use(cors());
 
-app.get('/notes', (req, res) => {
+app.get('/contacts', (req, res) => {
 	res.send(NOTES);
 });
 
 
-app.get('/note/:noteid', (req, res) => {
-	let noteid = parseInt(req.params.noteid);
+app.get('/contact/:contactid', (req, res) => {
+	let contactid = parseInt(req.params.contactid);
 
-	if(isNaN(noteid)) {
-		res.status(400).send(ERR_MSG("noteid is not a nunber"))
+	if(isNaN(contactid)) {
+		res.status(400).send(ERR_MSG("contactid is not a nunber"))
 	} else {
-		if(noteid < 0 || noteid >= NOTES.length) {
-			res.status(400).send(ERR_MSG("noteid is not within range"))
+		if(contactid < 0 || contactid >= NOTES.length) {
+			res.status(400).send(ERR_MSG("contactid is not within range"))
 		} else {
 			res.status(200).send(
-				NOTES[noteid]
+				NOTES[contactid]
 			);
 		}
 	}
 });
 
 
-app.post('/note', (req, res) => {
-	let note = req.body;
+app.post('/contact', (req, res) => {
+	let contact = req.body;
 
-	if(note.name !== undefined &&
-		note.phone !== undefined&&
-		note.dept !== undefined&&
-		note.addrStr !== undefined&&
-		note.addrCty !== undefined&&
-		note.addrState !== undefined&&
-		note.addrZip !== undefined&&
-		note.addrCntry !== undefined) {
+	if(contact.name !== undefined &&
+		contact.phone !== undefined&&
+		contact.dept !== undefined&&
+		contact.addrStr !== undefined&&
+		contact.addrCty !== undefined&&
+		contact.addrState !== undefined&&
+		contact.addrZip !== undefined&&
+		contact.addrCntry !== undefined) {
 		NOTES.push(
 			{
-				name: note.name,
-				phone: note.phone,
-				addrStr: note.addrStr,
-				dept: note.dept,
-				addrCty: note.addrCty,
-				addrState: note.addrState,
-				addrZip: note.addrZip,
-				addrCntry: note.addrCntry,
+				name: contact.name,
+				phone: contact.phone,
+				addrStr: contact.addrStr,
+				dept: contact.dept,
+				addrCty: contact.addrCty,
+				addrState: contact.addrState,
+				addrZip: contact.addrZip,
+				addrCntry: contact.addrCntry,
 			});
-		res.status(200).send({ reason: "Success, note added" });
+		res.status(200).send({ reason: "Success, contact added" });
 	} else {
-		res.status(400).send(ERR_MSG("Unable to add note, missing fields"));
+		res.status(400).send(ERR_MSG("Unable to add contact, missing fields"));
 	}
 });
 
-app.put('/note/:noteid', (req, res) => {
-	let noteid = parseInt(req.params.noteid);
-	if(isNaN(noteid)) {
-		res.status(400).send(ERR_MSG("noteid is not a number"));
+app.put('/contact/:contactid', (req, res) => {
+	let contactid = parseInt(req.params.contactid);
+	if(isNaN(contactid)) {
+		res.status(400).send(ERR_MSG("contactid is not a number"));
 	} else {
-		if(noteid < 0 || noteid >= NOTES.length) {
-			res.status(400).send(ERR_MSG("note id is not within range"))
+		if(contactid < 0 || contactid >= NOTES.length) {
+			res.status(400).send(ERR_MSG("contact id is not within range"))
 		} else {
-			let note = req.body;
+			let contact = req.body;
 
-			if(note.name !== undefined &&
-				note.phone !== undefined&&
-				note.dept !== undefined&&
-				note.addrStr !== undefined&&
-				note.addrCty !== undefined&&
-				note.addrState !== undefined&&
-				note.addrZip !== undefined&&
-				note.addrCntry !== undefined) {
-				NOTES[noteid] = {
-					name: note.name,
-					phone: note.phone,
-					addrStr: note.addrStr,
-					dept: note.dept,
-					addrCty: note.addrCty,
-					addrState: note.addrState,
-					addrZip: note.addrZip,
-					addrCntry: note.addrCntry,
+			if(contact.name !== undefined &&
+				contact.phone !== undefined&&
+				contact.dept !== undefined&&
+				contact.addrStr !== undefined&&
+				contact.addrCty !== undefined&&
+				contact.addrState !== undefined&&
+				contact.addrZip !== undefined&&
+				contact.addrCntry !== undefined) {
+				NOTES[contactid] = {
+					name: contact.name,
+					phone: contact.phone,
+					addrStr: contact.addrStr,
+					dept: contact.dept,
+					addrCty: contact.addrCty,
+					addrState: contact.addrState,
+					addrZip: contact.addrZip,
+					addrCntry: contact.addrCntry,
 					};
-				res.status(200).send({ reason: "Success, note updated" });
+				res.status(200).send({ reason: "Success, contact updated" });
 			} else {
 				res.status(400)
-					.send(ERR_MSG("Unable to update note, missing fields"));
+					.send(ERR_MSG("Unable to update contact, missing fields"));
 			}
 		}
 	}
@@ -257,22 +257,22 @@ app.put('/note/:noteid', (req, res) => {
 });
 
 
-app.delete('/note/:noteid', (req, res) => {
-	let noteid = parseInt(req.params.noteid);
+app.delete('/contact/:contactid', (req, res) => {
+	let contactid = parseInt(req.params.contactid);
 
-	if(isNaN(noteid)) {
-		res.status(400).send(ERR_MSG("noteid is not a number"));
+	if(isNaN(contactid)) {
+		res.status(400).send(ERR_MSG("contactid is not a number"));
 	} else {
-		if(noteid < 0 || noteid >= NOTES.length) {
-			res.status(400).send(ERR_MSG("note id is not within range"))
+		if(contactid < 0 || contactid >= NOTES.length) {
+			res.status(400).send(ERR_MSG("contact id is not within range"))
 		} else {
-			NOTES.splice(noteid, 1);
-			res.status(200).send({ reason: "Success, note removed" });
+			NOTES.splice(contactid, 1);
+			res.status(200).send({ reason: "Success, contact removed" });
 		}
 	}
 });
 
 
 app.listen(PORT, () => {
-	console.log('Notebook API Has Started');
+	console.log('Contact List API Has Started');
 });
