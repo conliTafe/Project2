@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ROIUpdateContact(props){
     const id = props.route.params.noteid;
-    const [note, setNote] = useState({
+    const [contact, setContact] = useState({
         name: props.route.params.contactName,
         phone: props.route.params.contactPhone,
         dept: props.route.params.contactDept,
@@ -17,98 +17,98 @@ export default function ROIUpdateContact(props){
     const navigation = props.navigation;
 
     function  updateName(data){
-        setNote({
+        setContact({
             name: data,
-            phone: note.phone,
-            dept: note.dept,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            phone: contact.phone,
+            dept: contact.dept,
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updatePhone(data){
-        setNote({
-            name: note.name,
+        setContact({
+            name: contact.name,
             phone: data,
-            dept: note.dept,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            dept: contact.dept,
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updateDept(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
             dept: data,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updateCntry(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
-            dept: note.dept,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
+            dept: contact.dept,
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
             addrCntry: data,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updateState(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
-            dept: note.dept,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
+            dept: contact.dept,
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
             addrState: data,
-            addrCty: note.addrCty        })
+            addrCty: contact.addrCty        })
     }
     function updateZip(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
-            dept: note.dept,
-            addrStr: note.addrStr,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
+            dept: contact.dept,
+            addrStr: contact.addrStr,
             addrZip: data,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updateStreet(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
-            dept: note.dept,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
+            dept: contact.dept,
             addrStr: data,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
-            addrCty: note.addrCty        })
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
+            addrCty: contact.addrCty        })
     }
     function updateCty(data){
-        setNote({
-            name: note.name,
-            phone: note.phone,
-            dept: note.dept,
-            addrStr: note.addrStr,
-            addrZip: note.addrZip,
-            addrCntry: note.addrCntry,
-            addrState: note.addrState,
+        setContact({
+            name: contact.name,
+            phone: contact.phone,
+            dept: contact.dept,
+            addrStr: contact.addrStr,
+            addrZip: contact.addrZip,
+            addrCntry: contact.addrCntry,
+            addrState: contact.addrState,
             addrCty: data
         })
     }
-    function saveNote(){
+    function saveContact(){
         fetch('http://localhost:3000/note/' + id,{
             method: 'PUT',
-            body: JSON.stringify(note),
+            body: JSON.stringify(contact),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -116,21 +116,79 @@ export default function ROIUpdateContact(props){
           if(response.status === 200){
               navigation.navigate('Contact List');
           }else{
-              console.log("error on update note");
+              console.log("error on update contact");
           }
         });
     }
     return (
-        <View>
-            <TextInput onChangeText={updateName} value={note.name}/>
-            <TextInput onChangeText={updatePhone} value={note.phone}/>
-            <TextInput onChangeText={updateDept} value={note.dept}/>
-            <TextInput onChangeText={updateCntry} value={note.addrCntry}/>
-            <TextInput onChangeText={updateState} value={note.addrState}/>
-            <TextInput onChangeText={updateZip} value={note.addrZip}/>
-            <TextInput onChangeText={updateStreet} value={note.addrStr}/>
-            <TextInput onChangeText={updateCty} value={note.addrCty}/>
-            <Button onPress={saveNote} title={"Save"}/>
+        <View style={styles.container}>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.name}
+                    onChangeText={updateName}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.phone}
+                    onChangeText={updatePhone}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.dept}
+                    onChangeText={updateDept}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.addrStr}
+                    onChangeText={updateStreet}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.addrCty}
+                    onChangeText={updateCty}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.addrState}
+                    onChangeText={updateState}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.addrZip}
+                    onChangeText={updateZip}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    value={contact.addrCntry}
+                    onChangeText={updateCntry}/>
+            </View>
+
+            <Button color="#c64c38" onPress={saveContact} title={"Save"}/>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: '2em',
+        paddingLeft: '2em',
+        paddingRight: '2em',
+        justifyContent: 'center',
+    },
+    inputView:{
+        width:"80%",
+        backgroundColor:'#D9D9D9',
+        borderRadius:25,
+        height:50,
+        marginBottom:20,
+        justifyContent:"center",
+        padding:20
+    }
+});
