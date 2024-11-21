@@ -95,7 +95,7 @@ export default function ROIAddContact(props){
         })
     }
     function saveNote(){
-        fetch('http://localhost:3000/note/',{
+        fetch('http://localhost:3000/contact/',{
             method: 'POST',
             body: JSON.stringify(note),
             headers: {

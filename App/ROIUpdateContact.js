@@ -106,7 +106,7 @@ export default function ROIUpdateContact(props){
         })
     }
     function saveContact(){
-        fetch('http://localhost:3000/note/' + id,{
+        fetch('http://localhost:3000/contact/' + id,{
             method: 'PUT',
             body: JSON.stringify(contact),
             headers: {
