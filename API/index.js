@@ -61,6 +61,106 @@ const NOTES = [
 		addrZip: "0110",
 		addrCntry: "Australia"
 	},
+	{
+		name: "John Smith",
+		phone: "02 9988 2211",
+		dept: "Information Technology",
+		addrStr: "1 Code Lane",
+		addrCty: "Javaville",
+		addrState: "NSW",
+		addrZip: "0100",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Sue White",
+		phone: "03 8899 2255",
+		dept: "Finance",
+		addrStr: "16 Bit Way",
+		addrCty: "Byte Cove",
+		addrState: "QLD",
+		addrZip: "1101",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Bob O'Bits",
+		phone: "05 7788 2255",
+		dept: "Marketing",
+		addrStr: "8 Silicon Road",
+		addrCty: "Cloud Hills",
+		addrState: "VIC",
+		addrZip: "1001",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Mary Blue",
+		phone: "06 4455 9988",
+		dept: "Finance",
+		addrStr: "4 Processor Boulevard",
+		addrCty: "Appletson",
+		addrState: "NT",
+		addrZip: "1010",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Mick Green",
+		phone: "02 9988 1122",
+		dept: "Marketing",
+		addrStr: "700 Bandwidth Street",
+		addrCty: "Bufferland",
+		addrState: "NSW",
+		addrZip: "0110",
+		addrCntry: "Australia"
+	},
+	{
+		name: "John Smith",
+		phone: "02 9988 2211",
+		dept: "Information Technology",
+		addrStr: "1 Code Lane",
+		addrCty: "Javaville",
+		addrState: "NSW",
+		addrZip: "0100",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Sue White",
+		phone: "03 8899 2255",
+		dept: "Finance",
+		addrStr: "16 Bit Way",
+		addrCty: "Byte Cove",
+		addrState: "QLD",
+		addrZip: "1101",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Bob O'Bits",
+		phone: "05 7788 2255",
+		dept: "Marketing",
+		addrStr: "8 Silicon Road",
+		addrCty: "Cloud Hills",
+		addrState: "VIC",
+		addrZip: "1001",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Mary Blue",
+		phone: "06 4455 9988",
+		dept: "Finance",
+		addrStr: "4 Processor Boulevard",
+		addrCty: "Appletson",
+		addrState: "NT",
+		addrZip: "1010",
+		addrCntry: "Australia"
+	},
+	{
+		name: "Mick Green",
+		phone: "02 9988 1122",
+		dept: "Marketing",
+		addrStr: "700 Bandwidth Street",
+		addrCty: "Bufferland",
+		addrState: "NSW",
+		addrZip: "0110",
+		addrCntry: "Australia"
+	},
 ];
 
 const ERR_MSG = (msg) => { return { reason: msg }; };

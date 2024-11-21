@@ -10,7 +10,7 @@ function HomeScreen(props) {
     const navigation = props.navigation;
 
     const onPressLogin = () => {
-        navigation.navigate("ROIHome")
+        navigation.navigate("Welcome To ROI")
     };
     const onPressForgotPassword = () => {
 // Do something about forgot password operation
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     inputView:{
         width:"80%",
-        backgroundColor:"#3AB4BA",
+        backgroundColor:"#cb6d4f",
         borderRadius:25,
         height:50,
         marginBottom:20,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     loginBtn:{
         width:"80%",
-        backgroundColor:"#fb5b5a",
+        backgroundColor:"#c64c38",
         borderRadius:25,
         height:50,
         alignItems:"center",

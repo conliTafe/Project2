@@ -114,7 +114,7 @@ export default function ROIUpdateContact(props){
             }
         } ).then(function (response){
           if(response.status === 200){
-              navigation.navigate('ROIContactList');
+              navigation.navigate('Contact List');
           }else{
               console.log("error on update note");
           }

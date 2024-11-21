@@ -1,4 +1,4 @@
-import {Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Button, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import React from 'react';
@@ -7,7 +7,7 @@ function ContactView({ id, name, phone, dept, addrStr, addrCty, addrState,
                          addrZip, addrCntry, navigation }) {
 
     function gotoUpdate() {
-        navigation.navigate("UpdateNote", {
+        navigation.navigate("Update Contact", {
             noteid:id,
             contactName: name,
             contactPhone: phone,
@@ -63,17 +63,19 @@ export default function ROIContactList(props) {
     }
 
     const add = () => {
-        navigation.navigate("ROIAddContact")
+        navigation.navigate("Add Contact")
     };
 
     return (
         <View style={styles.container}>
+            <View style={styles.button}>
+                <Button color="#c64c38" onPress={add} title={"Add New Contact"}/>
+            </View>
+            <ScrollView style={styles.scrollView}>
             <View style={styles.notesContainer}>
                 {presentableNotes}
             </View>
-            <TouchableOpacity onPress={add}>
-                <Text>Add</Text>
-            </TouchableOpacity>
+            </ScrollView>
         </View>
     )
 }
@@ -81,27 +83,33 @@ export default function ROIContactList(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        paddingTop: '2em',
+        paddingLeft: '2em',
+        paddingRight: '2em',
+        justifyContent: 'flex-end',
+    },
+    scrollView: {
+        backgroundColor: '#595959',
+        paddingLeft: '1em',
+        paddingRight: '1em',
     },
     notesContainer: {
         flex: 1,
+        paddingTop: '1em',
         alignItems: 'center',
-        justifyContent: 'center',
         width: '100%',
     },
     noteViewContainer: {
         width: '100%',
         paddingTop: '1em',
+        paddingLeft: '2em',
         paddingBottom: '1em',
-        backgroundColor: '#eeaa22',
+        backgroundColor: '#D9D9D9',
         marginBottom: '1em',
     },
-    labelContainer: {
-        flex: 1,
+    button: {
+        width: '100%',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        backgroundColor: 'green'
+        justifyContent: 'flex-end'
     }
 });

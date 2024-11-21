@@ -17,11 +17,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Welcome to ROI" component={HomeScreen} />
-          <Stack.Screen name="UpdateNote" component={ROIUpdateContact} />
-          <Stack.Screen name="ROIHome" component={ROIHome} />
-          <Stack.Screen name="ROIContactList" component={ROIContactList} />
-          <Stack.Screen name="ROIAddContact" component={ROIAddContact} />
+          <Stack.Screen name="Login" component={HomeScreen} />
+          <Stack.Screen name="Welcome To ROI" component={ROIHome} />
+          <Stack.Screen name="Update Contact" component={ROIUpdateContact} />
+          <Stack.Screen name="Contact List" component={ROIContactList} />
+          <Stack.Screen name="Add Contact" component={ROIAddContact} />
       </Stack.Navigator>
     </NavigationContainer>
   );

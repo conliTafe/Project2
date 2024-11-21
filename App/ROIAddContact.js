@@ -103,23 +103,90 @@ export default function ROIAddContact(props){
             }
         } ).then(function (response){
           if(response.status === 200){
-              navigation.navigate('ROIContactList');
+              navigation.navigate('Contact List');
           }else{
               console.log("error on update note");
           }
         });
     }
     return (
-        <View>
-            <TextInput onChangeText={updateName} placeholder={"Name"}/>
-            <TextInput onChangeText={updatePhone} placeholder={"Phone"}/>
-            <TextInput onChangeText={updateDept} placeholder={"Department"}/>
-            <TextInput onChangeText={updateCntry} placeholder={"Country"}/>
-            <TextInput onChangeText={updateState} placeholder={"State"}/>
-            <TextInput onChangeText={updateZip} placeholder={"Zip"}/>
-            <TextInput onChangeText={updateStreet} placeholder={"Street"}/>
-            <TextInput onChangeText={updateCty} placeholder={"City"}/>
-            <Button onPress={saveNote} title={"Save"}/>
+        <View style={styles.container}>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Name"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateName}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Phone"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updatePhone}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Department"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateDept}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Street"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateStreet}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="City"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateCty}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="State"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateState}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Zip"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateZip}/>
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Country"
+                    placeholderTextColor="#003f5c"
+                    onChangeText={updateCntry}/>
+            </View>
+
+            <Button color="#c64c38" onPress={saveNote} title={"Save"}/>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: '2em',
+        paddingLeft: '2em',
+        paddingRight: '2em',
+        justifyContent: 'center',
+    },
+    inputView:{
+        width:"80%",
+        backgroundColor:'#D9D9D9',
+        borderRadius:25,
+        height:50,
+        marginBottom:20,
+        justifyContent:"center",
+        padding:20
+        }
+});

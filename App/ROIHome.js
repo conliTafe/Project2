@@ -6,13 +6,13 @@ import React from 'react';
 export default function ROIHome(props) {
     const navigation = props.navigation;
     const openList = () => {
-        navigation.navigate("ROIContactList")
+        navigation.navigate("Contact List")
     };
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Red Opal Innovations</Text>
             <Image style={styles.logo} source={require('./assets/contactList.png')}/>
-            <Button onPress={openList} title={"Open contact list"}/>
+            <Button color="#c64c38" onPress={openList} title={"Open contact list"}/>
         </View>
     )
 }
