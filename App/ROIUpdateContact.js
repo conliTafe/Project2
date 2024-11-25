@@ -106,7 +106,7 @@ export default function ROIUpdateContact(props){
         })
     }
     function saveContact(){
-        fetch('http://localhost:3000/contact/' + id,{
+        fetch('http://192.168.176.113:3000/contact/' + id,{
             method: 'PUT',
             body: JSON.stringify(contact),
             headers: {
@@ -177,9 +177,9 @@ export default function ROIUpdateContact(props){
 }
 const styles = StyleSheet.create({
     container: {
-        paddingTop: '2em',
-        paddingLeft: '2em',
-        paddingRight: '2em',
+        paddingTop: '2%',
+        paddingLeft: '2%',
+        paddingRight: '2%',
         justifyContent: 'center',
     },
     inputView:{
@@ -187,8 +187,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#D9D9D9',
         borderRadius:25,
         height:50,
-        marginBottom:20,
+        marginBottom:10,
         justifyContent:"center",
-        padding:20
+        padding:10
     }
 });

@@ -37,7 +37,7 @@ export default function ROIContactList(props) {
 
     useFocusEffect(
         React.useCallback(function() {
-            fetch('http://localhost:3000/contacts')
+            fetch('http://192.168.176.113:3000/contacts')
                 .then(function(response) {
                     return response.json();
                 })
@@ -83,34 +83,36 @@ export default function ROIContactList(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: '2em',
-        paddingLeft: '2em',
-        paddingRight: '2em',
+        paddingTop: '2%',
+        paddingLeft: '2%',
+        paddingRight: '2%',
         justifyContent: 'flex-end',
     },
     scrollView: {
         backgroundColor: '#595959',
-        paddingLeft: '1em',
-        paddingRight: '1em',
+        paddingLeft: '1%',
+        paddingRight: '1%',
+        marginBottom: '3%'
     },
     notesContainer: {
         flex: 1,
-        paddingTop: '1em',
+        paddingTop: '1%',
         alignItems: 'center',
+        paddingBottom: '1%',
         width: '100%',
     },
     noteViewContainer: {
         width: '100%',
-        paddingTop: '1em',
-        paddingLeft: '2em',
-        paddingBottom: '1em',
+        paddingTop: '2%',
+        paddingLeft: '2%',
+        paddingBottom: '2%',
         backgroundColor: '#D9D9D9',
-        marginBottom: '1em',
+        marginBottom: '2%',
     },
     button: {
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        paddingBottom: '1em'
+        paddingBottom: '1%'
     }
 });
