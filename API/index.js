@@ -9,7 +9,7 @@ const app = express();
 const PARSED_PORT = parseInt(process.argv[2]);
 const PORT = isNaN(PARSED_PORT) ? 3000 : PARSED_PORT;
 
-const NOTES = [
+const STAFF = [
 
 	{
 		name: "John Smith",
@@ -318,7 +318,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/contacts', (req, res) => {
-	res.send(NOTES);
+	res.send(STAFF);
 });
 
 
@@ -328,11 +328,11 @@ app.get('/contact/:contactid', (req, res) => {
 	if(isNaN(contactid)) {
 		res.status(400).send(ERR_MSG("contactid is not a nunber"))
 	} else {
-		if(contactid < 0 || contactid >= NOTES.length) {
+		if(contactid < 0 || contactid >= STAFF.length) {
 			res.status(400).send(ERR_MSG("contactid is not within range"))
 		} else {
 			res.status(200).send(
-				NOTES[contactid]
+				STAFF[contactid]
 			);
 		}
 	}
@@ -350,7 +350,7 @@ app.post('/contact', (req, res) => {
 		contact.addrState !== undefined&&
 		contact.addrZip !== undefined&&
 		contact.addrCntry !== undefined) {
-		NOTES.push(
+		STAFF.push(
 			{
 				name: contact.name,
 				phone: contact.phone,
@@ -372,7 +372,7 @@ app.put('/contact/:contactid', (req, res) => {
 	if(isNaN(contactid)) {
 		res.status(400).send(ERR_MSG("contactid is not a number"));
 	} else {
-		if(contactid < 0 || contactid >= NOTES.length) {
+		if(contactid < 0 || contactid >= STAFF.length) {
 			res.status(400).send(ERR_MSG("contact id is not within range"))
 		} else {
 			let contact = req.body;
@@ -385,7 +385,7 @@ app.put('/contact/:contactid', (req, res) => {
 				contact.addrState !== undefined&&
 				contact.addrZip !== undefined&&
 				contact.addrCntry !== undefined) {
-				NOTES[contactid] = {
+				STAFF[contactid] = {
 					name: contact.name,
 					phone: contact.phone,
 					addrStr: contact.addrStr,
@@ -412,10 +412,10 @@ app.delete('/contact/:contactid', (req, res) => {
 	if(isNaN(contactid)) {
 		res.status(400).send(ERR_MSG("contactid is not a number"));
 	} else {
-		if(contactid < 0 || contactid >= NOTES.length) {
+		if(contactid < 0 || contactid >= STAFF.length) {
 			res.status(400).send(ERR_MSG("contact id is not within range"))
 		} else {
-			NOTES.splice(contactid, 1);
+			STAFF.splice(contactid, 1);
 			res.status(200).send({ reason: "Success, contact removed" });
 		}
 	}
